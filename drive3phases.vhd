@@ -32,7 +32,6 @@ entity PWM3phases is
 		  CLKout: out std_logic;
 												-- entrees
 		  PWM: in STD_LOGIC_VECTOR (7 DOWNTO 0):="11111111";
-		  
 												-- sortie TESTs
 		 -- TEST1: out std_logic;
 		 -- TEST2: out std_logic;
@@ -88,9 +87,9 @@ begin
 Sreg0_machine: process (Sreg0, cptPWM, PWM, PWMout)
 begin
 				Sreg0_next <= Sreg0 ;
-				--cptPWM_next <= cptPWM;
-				                     --TEST1 <='1';
-											--TEST2 <='1';
+				cptPWM_next <= cptPWM;
+				                     					--TEST1 <='1';
+							--TEST2 <='1';
 							
 								if cptPWM <= PWM then 
 									PWMout <='1';
@@ -98,7 +97,6 @@ begin
 									PWMout <='0';
 								end if;
 	case Sreg0 is
-	
 		when S1 =>													-- AB
 					   AH <= '1';--PWMout; 
 					   AL <= '0';
